@@ -1,0 +1,226 @@
+/* Global styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+hr {
+  width: 500px;
+}
+
+#errors {
+  color: coral;
+}
+
+/* Board styles */
+#board {
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); /* 9 equal columns */
+  grid-template-rows: repeat(9, 1fr);   /* 9 equal rows */
+}
+
+.tile {
+  width: 48px;
+  height: 48px;
+  border: 1px solid lightgray;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Digits section */
+#digits {
+  width: 450px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number {
+  width: 44px;
+  height: 44px;
+  border: 1px solid black;
+  margin: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-selected {
+  background-color: gray;
+}
+
+.tile-start {
+  background-color: whitesmoke;
+}
+
+/* Horizontal & vertical line styles */
+.horizontal-line {
+  border-bottom: 1px solid black;
+}
+
+.vertical-line {
+  border-right: 1px solid black;
+}
+
+/* Button styles */
+.btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(1);
+  box-shadow: none;
+}
+
+Invalid cell
+.invalid {
+  background-color: red;
+  color: white;
+}
+
+/* Optional: Add a red border for invalid cells */
+.invalid-border {
+  border: 2px solid red;
+}
+
+/* Flashing red animation for invalid inputs */
+@keyframes flashRed {
+  0% {
+    background-color: red;
+    color: white;
+  }
+  50% {
+    background-color: transparent;
+    color: black;
+  }
+  100% {
+    background-color: red;
+    color: white;
+  }
+}
+
+/* Apply the flash animation to invalid tiles */
+.invalid-flash {
+  animation: flashRed 0.5s ease-out; /* Flash for 0.5 seconds */
+  border: 2px solid red;
+}
+
+
+
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #board {
+    width: 90%;
+    height: auto;
+    max-width: 400px; /* Limiting board width */
+    margin: 0 auto;
+  }
+
+  .tile {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  #digits {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .number {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 3px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  #board {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+  }
+
+  .tile {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  #digits {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .number {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
